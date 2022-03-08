@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./CSS/style.css" />
+    <title>Gulp</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header_content">
+        <div class="header_contaner--logo">
+          <a href="https://gulpjs.com/">
+            <img
+              class="header_contaner--logo__img"
+              src="./images/icon.png"
+              alt="Logo"
+              width="100"
+              height="100"
+            />
+          </a>
+        </div>
+        <nav>
+          <ul class="header-container--navigation">
+            <li class="header-container--navigation-item">
+              <a href="#header-45134-01">Сожержание</a>
+            </li>
+            <li class="header-container--navigation-item">
+              <a href="#header-45134-0">Введение</a>
+            </li>
+            <li class="header-container--navigation-item">
+              <a href="#header-45134-3">Обзор</a>
+            </li>
+            <li class="header-container--navigation-item">
+              <a href="#header-45134-4">Установка</a>
+            </li>
+          </ul>
+        </nav>
+        <a href="#header-45134-0" class="button beginning"> Начало </a>
+      </div>
+    </header>
+    <main>
+      <section class="content">
+        <div class="container main-container">
+          <h1 id="header-45134-0" class="main-container-h1">
+            Что такое Gulp.js - введение
+          </h1>
+          <p>
+            JavaScript-разработчики уделяют программированию очень мало времени.
+            Большая часть работы включает в себя выполнение рутинных заданий:
+          </p>
+          <ul>
+            <li>генерирование HTML из шаблонов и файлов содержимого;</li>
+            <li>сжатие изображений;</li>
+            <li>компиляция Sass в CSS код;</li>
+            <li>
+              удаление значений <span class="strong">console</span> и
+              <span class="strong">debugger</span> из скриптов;
+            </li>
+            <li>объединение и минификация файлов CSS и JavaScript;</li>
+            <li>развертывание файлов на серверах.</li>
+          </ul>
+          <p>
+            Это очень монотонный, отупляющий процесс. Разве не лучше было бы
+            потратить свое время на более интересную работу? Для этого вам
+            понадобится <span class="strong">сборщик проектов.</span>
+          </p>
+          <div class="common toc">
+            <h2 id="header-45134-01" class="common-h2">Содержание</h2>
+            <div class="common-content">
+              <ul>
+                <li><a href="#header-45134-1">Звучит сложно!</a></li>
+                <li>
+                  <a href="#header-45134-2">Сборщики проектов: варианты</a>
+                </li>
+                <li><a href="#header-45134-3">Версии Gulp</a></li>
+                <li><a href="#header-45134-4">Шаг 1: установите Node.js</a></li>
+                <li>
+                  <a href="#header-45134-5">Шаг 2: установите Gulp глобально</a>
+                </li>
+                <li><a href="#header-45134-6">Шаг 3: Настройте проект</a></li>
+                <li>
+                  <a href="#header-45134-7">Шаг 4: Установите Gulp локально</a>
+                </li>
+                <li>
+                  <a href="#header-45134-8"
+                    >Альтернативные варианты развертывания</a
+                  >
+                </li>
+                <li>
+                  <a href="#header-45134-9"
+                    >Шаг 4: Создайте файл конфигурации Gulp</a
+                  >
+                </li>
+                <li>
+                  <a href="#header-45134-10">Шаг 5: Создайте таск для Gulp</a>
+                  <ul>
+                    <li>
+                      <a href="#header-45134-11">Задания для изображений</a>
+                    </li>
+                    <li><a href="#header-45134-12">Задание для HTML</a></li>
+                    <li>
+                      <a href="#header-45134-13">Задание для JavaScript</a>
+                    </li>
+                    <li><a href="#header-45134-14">Задание для CSS</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#header-45134-15"
+                    >Шаг 6: Автоматизируйте выполнение заданий</a
+                  >
+                </li>
+                <li><a href="#header-45134-16">Шаг 7: Пожинаем плоды!</a></li>
+              </ul>
+            </div>
+          </div>
+          <h2 id="header-45134-1">
+            <span class="strong">Звучит сложно!</span>
+          </h2>
+          <p>
+            Это сложнее, чем выполнять каждую операцию вручную. Но в будущем вы
+            сэкономите время и сократите количество допускаемых ошибок. При
+            использовании сборщика реализуйте правильный подход:
+          </p>
+          <ul>
+            <li>Сначала автоматизируйте самые монотонные.</li>
+            <li>Постарайтесь не усложнять процесс сборки.</li>
+            <li>Выберите программное обеспечение для сборщика проектов.</li>
+          </ul>
+          <h2 id="header-45134-2">
+            <span class="strong">Сборщики проектов: варианты</span>
+          </h2>
+          <p>
+            Первым популярным решением подобного рода был
+            <a
+              href="http://gruntjs.com/"
+              rel="nofollow noopener"
+              class="ym-external-link"
+              target="_blank"
+              >Grunt</a
+            >
+            – сборщик проектов, созданный на основе Node.js. Grunt был
+            невероятно популярным. Но низкая скорость работы и сложность
+            настройки были его слабыми местами.
+          </p>
+          <p>
+            Затем появился
+            <a
+              href="http://gulpjs.com/"
+              rel="nofollow noopener"
+              class="ym-external-link"
+              target="_blank"
+              >Gulp</a
+            >
+            , обладающий следующими преимуществами:
+          </p>
+          <ul>
+            <li>Возможность просмотра файлов.</li>
+            <li>
+              Плагины для Gulp просты и предназначены для выполнения одной
+              задачи.
+            </li>
+            <li>
+              Код конфигурации на JavaScript, который легче для понимания.
+            </li>
+            <li>
+              Gulp быстрее из-за того, что использует потоки Node.js для
+              передачи данных через серию плагинов.
+            </li>
+          </ul>
+          <h2 id="header-45134-3"><span class="strong">Версии Gulp</span></h2>
+          <p>
+            Gulp.js 3.9.1 был единственной версией много лет. И хотя был
+            доступен Gulp 4, его нужно было устанавливать с помощью
+            <span class="strong">npm install gulp@next</span>. Причина этого
+            заключалась в том, что плагины оставались совместимыми. Но Gulp 4
+            использовал новый синтаксис конфигурации.
+          </p>
+          <p>
+            10 декабря 2018 года
+            <a
+              href="https://medium.com/gulpjs/version-4-now-default-92c6cd4beb45"
+              rel="nofollow noopener"
+              class="ym-external-link"
+              target="_blank"
+              >Gulp.js 4.0 был объявлен единственной версией</a
+            >
+            и появился в менеджере пакетов npm. Любой, кто станет использовать
+            <span class="strong">npm install gulp</span>
+            , получит версию 4. Эта версия будет использоваться и в данном
+            руководстве.
+          </p>
+          <h2 id="header-45134-4">
+            <span class="strong">Шаг 1: установите Node.js</span>
+          </h2>
+          <p>
+            Node.js можно загрузить для Windows, macOS и Linux с
+            <a
+              href="https://nodejs.org/download/"
+              rel="nofollow noopener"
+              class="ym-external-link"
+              target="_blank"
+              >nodejs.org/download/</a
+            >
+            . Доступны различные варианты платформы для установки из бинарных
+            файлов, модульных сборщиков и Docker-образов.
+          </p>
+          <p>
+            <span class="italic"
+              >Примечание: Node.js и Gulp работают в Windows, но некоторые
+              плагины могут работать некорректно, если они зависят от
+              собственных бинарных файлов Linux. Одним из вариантов решения
+              проблемы в Windows 10 является
+            </span>
+            <a
+              href="https://docs.microsoft.com/ru-ru/windows/wsl/about"
+              rel="nofollow noopener"
+              class="ym-external-link"
+              target="_blank"
+              ><span class="italic">подсистема Windows для Linux</span></a
+            >
+            <span class="italic">.</span>
+          </p>
+          <p>
+            После установки запустите командную строку и введите следующую
+            команду. Она позволит узнать номер версии:
+          </p>
+          <div class="highlight" data-hscroll="">
+            <pre class="highlight hljs nginx show">
+            <span class="line width-1" start="1">
+              <span class="hljs-attribute"><span class="hljs-attribute">node</span></span> -v</span></pre>
+          </div>
+          <p>
+            Вскоре вы станете активно использовать<span class="strong">
+              npm</span
+            >
+            – менеджер пакетов Node.js, который необходим для установки модулей.
+            Узнайте номер его версии:
+          </p>
+          <div class="highlight" data-hscroll="">
+            <pre class="highlight hljs nginx show">
+            <span class="line width-1" start="1"><span class="hljs-attribute">
+              <span class="hljs-attribute">
+            npm</span></span> –v</span></pre>
+          </div>
+          <p>
+            <span class="italic"
+              >Примечание: модули Node.js можно устанавливать глобально, чтобы
+              они были доступны во всей ОС. Но большинство пользователей не
+              будут иметь права на запись в глобальные библиотеки, если у команд
+              <span class="strong">npm</span> не будет префикса
+              <span class="strong">sudo</span>. Существует несколько вариантов,
+            </span>
+            <a
+              href="https://docs.npmjs.com/getting-started/fixing-npm-permissions"
+              rel="nofollow noopener"
+              class="ym-external-link"
+              target="_blank"
+            >
+              <span class="italic">как исправить разрешения npm</span></a
+            >
+          </p>
+          <div class="highlight" data-hscroll="">
+            <pre
+              class="highlight hljs nginx show"
+            ><span class="line width-1" start="1"><span class="hljs-attribute">
+              <span class="hljs-attribute">cd</span></span> <span class="hljs-regexp"><span class="hljs-regexp">~</span>
+            </span></span><span class="hljs-regexp">
+          </span><span class="line width-1" start="2"><span class="hljs-regexp"><span class="hljs-regexp">
+              mkdir</span></span> .node_modules_global</span>
+          <span class="line width-1" start="3">  npm config set prefix=<span class="hljs-variable">
+            <span class="hljs-variable">$HOME</span></span>/.node_modules_global</span>
+          <span class="line width-1" start="4">  npm install npm -g</span></pre>
+          </div>
+          <p>
+            <span class="italic"
+              >Затем добавьте следующую строку в конце
+              <span class="strong">~/.bashrc</span>:</span
+            >
+          </p>
+          <div class="highlight" data-hscroll="">
+            <pre
+              class="highlight hljs nginx show"
+            ><span class="line width-1" start="1"><span class="hljs-attribute"><span class="hljs-attribute">export</span></span>
+             PATH=<span class="hljs-string"><span class="hljs-string">"</span><span class="hljs-variable"><span class="hljs-string">
+               <span class="hljs-variable">$HOME</span></span></span>
+             <span class="hljs-string">/.node_modules_global/bin:</span><span class="hljs-variable"><span class="hljs-string">
+               <span class="hljs-variable">$PATH</span></span></span>
+             <span class="hljs-string">"</span></span></span></pre>
+          </div>
+          <p><span class="italic">Снова обновите:</span></p>
+          <div class="highlight" data-hscroll="">
+            <pre
+              class="highlight hljs nginx show"
+            ><span class="line width-1" start="1"><span class="hljs-attribute"><span class="hljs-attribute">source</span>
+          </span> ~/.bashrc</span></pre>
+          </div>
+          <h2 id="header-45134-5">
+            <span class="strong">Шаг 2: установите Gulp глобально</span>
+          </h2>
+          <p>
+            Установите интерфейс командной строки Gulp глобально, чтобы сборщик
+            можно было запустить из любой папки проекта:
+          </p>
+          <div class="highlight" data-hscroll="">
+            <pre
+              class="highlight hljs nginx show"
+            ><span class="line width-1" start="1"><span class="hljs-attribute">
+            <span class="hljs-attribute">npm</span></span> install gulp-cli -g</span></pre>
+          </div>
+          <p>Убедитесь, что Gulp установлен, проверив его версию:</p>
+          <div class="highlight" data-hscroll="">
+            <pre
+              class="highlight hljs nginx show"
+            ><span class="line width-1" start="1"><span class="hljs-attribute">
+            <span class="hljs-attribute">gulp</span></span> -v</span></pre>
+          </div>
+          <h2 id="header-45134-6">
+            <span class="strong">Шаг 3: Настройте проект</span>
+          </h2>
+          <p>
+            <span class="italic"
+              >Примечание: пропустите этот шаг, если у вас уже есть файл
+              конфигурации <span class="strong">package.json</span>.</span
+            >
+          </p>
+          <p>
+            Предположим что, у вас есть новый проект в папке
+            <span class="strong">project1</span>. Перейдите в каталог и
+            инициализируйте его с помощью npm:
+          </p>
+          <div class="highlight" data-hscroll="">
+            <pre class="highlight hljs nginx show">
+            <span class="line width-1" start="1"><span class="hljs-attribute">
+            <span class="hljs-attribute">cd</span></span> project1</span>
+            <span class="line width-1" start="2">npm init</span></pre>
+          </div>
+          <p>
+            Затем нажмите «<span class="strong">Return</span>», чтобы принять
+            значения по умолчанию. Файл
+            <span class="strong">package.json</span>, в котором хранятся
+            параметры конфигурации <span class="strong">npm</span>, будет создан
+            автоматически.
+          </p>
+          <p>
+            <span class="italic"
+              >Примечание: Node.js устанавливает модули в папку
+              <span class="strong">node_modules</span>. Нужно добавить их в свой
+              файл <span class="strong">.gitignore</span>, чтобы убедиться, что
+              они не попадут в репозиторий. При развертывании проекта в другой
+              системе можно будет запустить
+              <span class="strong">npm install</span>, чтобы их
+              восстановить.</span
+            >
+          </p>
+          <p>
+            Предполагается, что ваш проект содержит папки, перечисленные ниже.
+          </p>
+          <p>
+            <span class="strong"
+              >Папка src: предварительно обработанные исходники</span
+            >
+          </p>
+          <p>Содержит следующие подкаталоги:</p>
+          <ul>
+            <li>
+              <span class="strong">html</span> ‒ исходные файлы и шаблоны HTML;
+            </li>
+            <li>
+              <span class="strong">images ‒ </span>оригинальные несжатые
+              изображения;
+            </li>
+            <li>
+              <span class="strong">js – </span>предварительно обработанные файлы
+              скриптов;
+            </li>
+            <li>
+              <span class="strong">css </span>– предварительно обработанные
+              файлы Sass (<span class="strong">.scss</span>)
+            </li>
+          </ul>
+          <p>
+            <span class="strong"
+              >Папка build: скомпилированные/обработанные файлы</span
+            >
+          </p>
+          <p>Когда понадобится, Gulp создаст файлы и подпапки:</p>
+          <ul>
+            <li>
+              <span class="strong">html</span> ‒ скомпилированные статические
+              файлы HTML;
+            </li>
+            <li><span class="strong">images </span>‒ сжатые изображения;</li>
+            <li>
+              <span class="strong">js</span> ‒ единственный объединенный и
+              минифицированный файл JavaScript;
+            </li>
+            <li>
+              <span class="strong">css </span>– единственный скомпилированный и
+              минифицированный файл CSS.
+            </li>
+          </ul>
+          <p>
+            <span class="italic"
+              >Примечание: Если вы работаете в Unix-системе, то можете
+              воссоздать структуру исходных папок с помощью следующей
+              команды:</span
+            >
+          </p>
+          <div class="highlight" data-hscroll="">
+            <pre
+              class="highlight hljs perl show"
+            ><span class="line width-1" start="1"><span class="hljs-keyword">
+              <span class="hljs-keyword">mkdir</span></span> -p src/{html,images,js,scss}</span></pre>
+          </div>
+          <h2 id="header-45134-7">
+            <span class="strong">Шаг 4: Установите Gulp локально</span>
+          </h2>
+          <p>Теперь можно установить Gulp в папку проекта:</p>
+          <div class="highlight" data-hscroll="">
+            <pre
+              class="highlight hljs sql show"
+            ><span class="line width-1" start="1">npm 
+              <span class="hljs-keyword"><span class="hljs-keyword">install</span>
+            </span> gulp <span class="hljs-comment"><span class="hljs-comment">--save-dev</span>
+          </span></span></pre>
+          </div>
+          <p>
+            Эта команда устанавливает Gulp как зависимость. После чего раздел
+            «<span class="strong">devDependencies</span>» в
+            <span class="strong">package.json</span> обновляется соответствующим
+            образом.В рамках этого руководства предполагается, что Gulp и все
+            плагины являются зависимостями.
+          </p>
+          <h2 id="header-45134-8">
+            <span class="strong">Альтернативные варианты развертывания</span>
+          </h2>
+          <p>
+            Зависимости разработки не устанавливаются, если в операционной
+            системе для переменной среды
+            <span class="strong">NODE_ENV</span> задано значение
+            <span class="strong">production</span>. Обычно это делается на
+            сервере с помощью команды macOS/Linux:
+          </p>
+          <div class="highlight" data-hscroll="">
+            <pre
+              class="highlight hljs javascript show"
+            ><span class="line width-1" start="1"><span class="hljs-keyword"><span class="hljs-keyword">export</span></span> NODE_ENV=production</span></pre>
+          </div>
+          <p>В Windows:</p>
+          <div class="highlight" data-hscroll="">
+            <pre
+              class="highlight hljs nginx show"
+            ><span class="line width-1" start="1"><span class="hljs-attribute"><span class="hljs-attribute">set</span></span> NODE_ENV=production</span></pre>
+          </div>
+          <p>
+            В этом руководстве предполагается, что ресурсы будут скомпилированы
+            в папку <span class="strong">build</span>, переданы в репозиторий
+            Git или загружены непосредственно на сервер.
+          </p>
+          <p>
+            Чтобы использовать ресурсы на работающем сервере, изменить способ их
+            создания. Например, файлы HTML, CSS и JavaScript сжимаются при
+            использовании, но не в средах разработки. В этом случае удалите
+            <span class="strong">—save-dev</span> при установке Gulp и его
+            плагинов. Например:
+          </p>
+          <div class="highlight" data-hscroll="">
+            <pre
+              class="highlight hljs nginx show"
+            ><span class="line width-1" start="1"><span class="hljs-attribute"><span class="hljs-attribute">npm</span></span> install gulp</span></pre>
+          </div>
+          <p>
+            Эта команда устанавливает Gulp как зависимость приложения в разделе
+            «<span class="strong">dependencies</span>» файла
+            <span class="strong">package.json</span>. Сборщик будет установлен
+            при вводе <span class="strong">npm install</span> и может быть
+            запущен везде, где развернут проект.
+          </p>
+          <h2 id="header-45134-9">
+            <span class="strong">Шаг 4: Создайте файл конфигурации Gulp</span>
+          </h2>
+          <p>
+            Создайте новый файл конфигурации
+            <span class="strong">gulpfile.js</span> в корне папки проекта.
+            Добавьте в него базовый код:
+          </p>
+          <div class="highlight" data-hscroll="">
+            <pre
+              class="highlight hljs javascript show"
+            ><span class="line width-2" start="1"><span class="hljs-comment"><span class="hljs-comment">// конфигурация Gulp.js</span></span></span>
+            <span class="line width-2" start="2"></span>
+            <span class="line width-2" start="3"><span class="hljs-keyword"><span class="hljs-keyword">const</span></span></span>
+            <span class="line width-2" start="4">  <span class="hljs-comment"><span class="hljs-comment">// модули</span></span></span>
+            <span class="line width-2" start="5">  gulp = <span class="hljs-built_in"><span class="hljs-built_in">require</span></span>(<span class="hljs-string"><span class="hljs-string">'gulp'</span></span>),</span>
+            <span class="line width-2" start="6"></span>
+            <span class="line width-2" start="7">  <span class="hljs-comment"><span class="hljs-comment">// режим разработки</span></span></span>
+            <span class="line width-2" start="8">  devBuild = (process.env.NODE_ENV !== <span class="hljs-string"><span class="hljs-string">'production'</span></span>),</span>
+            <span class="line width-2" start="9"></span>
+            <span class="line width-2" start="10">  <span class="hljs-comment"><span class="hljs-comment">// папки</span></span></span>
+            <span class="line width-2" start="11">  src = <span class="hljs-string"><span class="hljs-string">'src/'</span></span>,</span>
+            <span class="line width-2" start="12">  build = <span class="hljs-string"><span class="hljs-string">'build/'</span></span></span>
+            <span class="line width-2" start="13">  ;</span></pre>
+          </div>
+          <p>
+            Код ссылается на модуль Gulp, устанавливает для переменной
+            <span class="strong">devBuild</span> значение
+            <span class="strong">true</span> при запуске в режиме разработки и
+            определяет расположение исходных файлов и папок сборки.
+          </p>
+          <p>
+            <span class="strong">gulpfile.js</span> ничего не сделает до того,
+            пока вы не выполните следующий шаг.
+          </p>
+          <h2 id="header-45134-10">
+            <span class="strong">Шаг 5: Создайте таск для Gulp</span>
+          </h2>
+          <p>Сам по себе Gulp ничего не делает. Необходимо:</p>
+          <ol>
+            <li>Установить плагины Gulp.</li>
+            <li>Написать инструкции (таск), которые они должны выполнить.</li>
+          </ol>
+          <p>
+            Чтобы найти нужные плагины, используйте библиотеку Gulp на
+            <a
+              href="http://gulpjs.com/plugins/"
+              rel="nofollow noopener"
+              class="ym-external-link"
+              target="_blank"
+              >gulpjs.com/plugins/</a
+            >, на
+            <a
+              href="https://www.npmjs.com/"
+              rel="nofollow noopener"
+              class="ym-external-link"
+              target="_blank"
+              >npmjs.com</a
+            >
+            или используя поисковую систему Google.
+          </p>
+          <p>Большинство заданий (тасков) будут использовать:</p>
+          <ul>
+            <li>
+              <span class="strong">src (folder)</span> — для создания потока из
+              файлов в исходной папке;
+            </li>
+            <li>
+              <span class="strong">dest (folder)</span> — для вывода потока в
+              виде файлов в целевую папку сборки.
+            </li>
+          </ul>
+          <p>
+            Любое количество методов плагина может быть вызвано с помощью
+            <span class="strong">.pipe</span>
+            <span class="strong">(plugin)</span> между
+            <span class="strong">.src</span> и
+            <span class="strong">.dest.</span>
+          </p>
+          <h3 id="header-45134-11">
+            <span class="strong">Задания для изображений</span>
+          </h3>
+          <p>
+            Создадим инструкцию (таск), которая сжимает изображения и копирует
+            их в соответствующую папку сборки. Поскольку этот процесс может
+            занять некоторое время, будем сжимать только новые и измененные
+            файлы. Для этого понадобятся два плагина:
+            <span class="strong">gulp-newer</span> и
+            <span class="strong">gulp-imagemin</span>. Установите их с помощью
+            командной строки:
+          </p>
+          <div class="highlight" data-hscroll="">
+            <pre
+              class="highlight hljs sql show"
+            ><span class="line width-1" start="1">npm <span class="hljs-keyword"><span class="hljs-keyword">install</span></span> gulp-newer gulp-imagemin <span class="hljs-comment"><span class="hljs-comment">--save-dev</span></span></span></pre>
+          </div>
+          <p>
+            Теперь можно ссылаться на оба модуля в верхней части
+            <span class="strong">gulpfile.js</span>:
+          </p>
+          <div class="highlight" data-hscroll="">
+            <pre
+              class="highlight hljs javascript show"
+            ><span class="line width-1" start="1"><span class="hljs-comment"><span class="hljs-comment">// конфигурация Gulp.js</span></span></span>
+            <span class="line width-1" start="2"></span>
+            <span class="line width-1" start="3"><span class="hljs-keyword"><span class="hljs-keyword">const</span></span></span>
+            <span class="line width-1" start="4">  <span class="hljs-comment"><span class="hljs-comment">// модули</span></span></span>
+            <span class="line width-1" start="5">  gulp = <span class="hljs-built_in"><span class="hljs-built_in">require</span>
+          </span>(<span class="hljs-string"><span class="hljs-string">'gulp'</span></span>),</span>
+            <span class="line width-1" start="6">  newer = <span class="hljs-built_in"><span class="hljs-built_in">require</span></span>(<span class="hljs-string"><span class="hljs-string">'gulp-newer'</span></span>),</span>
+            <span class="line width-1" start="7">  imagemin = <span class="hljs-built_in"><span class="hljs-built_in">require</span></span>(<span class="hljs-string"><span class="hljs-string">'gulp-imagemin'</span></span>),</span></pre>
+          </div>
+          <p>
+            Затем определите функцию обработки изображений в конце
+            <span class="strong">gulpfile.js</span>:
+          </p>
+          <div class="highlight" data-hscroll="">
+            <pre
+              class="highlight hljs cs show"
+            ><span class="line width-2" start="1"><span class="hljs-comment"><span class="hljs-comment">// обработка изображений</span></span></span>
+            <span class="line width-2" start="2"><span class="hljs-function"><span class="hljs-function">function 
+
+            </span><span class="hljs-title"><span class="hljs-function"><span class="hljs-title">
+              images</span></span></span><span class="hljs-function">(</span><span class="hljs-params"></span><span class="hljs-function"><span class="hljs-params"></span>) </span></span>{</span>
+            <span class="line width-2" start="3"></span>
+            <span class="line width-2" start="4">  <span class="hljs-keyword"><span class="hljs-keyword">const</span></span> 
+            <span class="hljs-keyword"><span class="hljs-keyword">out</span></span> = build + <span class="hljs-string"><span class="hljs-string">'images/'</span></span>;</span>
+            <span class="line width-2" start="5"></span>
+            <span class="line width-2" start="6">  <span class="hljs-keyword"><span class="hljs-keyword">return</span></span> gulp.src(src + <span class="hljs-string"><span class="hljs-string">'images/**/*'</span></span>)</span>
+            <span class="line width-2" start="7">    .pipe(newer(<span class="hljs-keyword"><span class="hljs-keyword">out</span></span>))</span>
+            <span class="line width-2" start="8">    .pipe(imagemin({ optimizationLevel: <span class="hljs-number"><span class="hljs-number">5</span></span> }))</span>
+            <span class="line width-2" start="9">    .pipe(gulp.dest(<span class="hljs-keyword"><span class="hljs-keyword">out</span></span>));</span>
+            <span class="line width-2" start="10"></span>
+            <span class="line width-2" start="11">});</span>
+            <span class="line width-2" start="12">exports.images = images;</span></pre>
+          </div>
+          <p>Этот код делает следующее:</p>
+          <ol>
+            <li>Создает новую функцию таска с именем</li>
+            <li>
+              Определяет папку <span class="strong">out</span>, в которой будут
+              находиться файлы сборки.
+            </li>
+            <li>
+              Читает поток файлов из папки
+              <span class="strong">src/images/</span>.
+              <span class="strong">**/*</span>.
+            </li>
+            <li>
+              Передает все файлы в модуль
+              <span class="strong">gulp-newer</span>.
+            </li>
+            <li>
+              Передает оставшиеся новые или измененные файлы через
+              <span class="strong">gulp-imagemin</span>, который устанавливает
+              необязательный аргумент <span class="strong">optimisLevel</span>.
+            </li>
+            <li>
+              Сохраняет сжатые изображения в папку Gulp
+              <span class="strong">dest/images/</span>.
+            </li>
+            <li>
+              Экспортирует таск <span class="strong">images</span>, который
+              вызывает функцию <span class="strong">images</span>.
+            </li>
+          </ol>
+          <p>
+            Сохраните <span class="strong">gulpfile.js</span> и поместите
+            несколько изображений в папку проекта
+            <span class="strong">src/images/</span>. Затем запустите задание из
+            командной строки:
+          </p>
+          <div class="highlight" data-hscroll="">
+            <pre
+              class="highlight hljs nginx show"
+            ><span class="line width-1" start="1"><span class="hljs-attribute"><span class="hljs-attribute">gulp</span></span> images</span></pre>
+          </div>
+          <p>Все изображения будут сжаты, и вы увидите следующее:</p>
+          <div class="highlight" data-hscroll="">
+            <pre
+              class="highlight hljs javascript show"
+            ><span class="line width-1" start="1">Using file gulpfile.js</span>
+            <span class="line width-1" start="2">Running <span class="hljs-string"><span class="hljs-string">'imagemin'</span></span>...</span>
+            <span class="line width-1" start="3">Finished <span class="hljs-string"><span class="hljs-string">'imagemin'</span></span> <span class="hljs-keyword"><span class="hljs-keyword">in</span></span> <span class="hljs-number"><span class="hljs-number">5.71</span></span> ms</span>
+            <span class="line width-1" start="4">gulp-imagemin: image1.png (saved <span class="hljs-number"><span class="hljs-number">48.7</span></span> kB)</span>
+            <span class="line width-1" start="5">gulp-imagemin: image2.jpg (saved <span class="hljs-number"><span class="hljs-number">36.2</span></span> kB)</span>
+            <span class="line width-1" start="6">gulp-imagemin: image3.svg (saved <span class="hljs-number"><span class="hljs-number">12.8</span></span> kB)</span></pre>
+          </div>
+          <p>
+            Попробуйте снова запустить <span class="strong">gulp images</span>.
+            Файлы не обрабатываются, поскольку ни одно из изображений не было
+            изменено.
+          </p>
+          <h3 id="header-45134-12">
+            <span class="strong">Задание для HTML</span>
+          </h3>
+          <p>
+            Создадим таск, который копирует файлы из исходной папки HTML. Мы
+            можем сжать HTML-код, чтобы удалить ненужные пробелы и атрибуты,
+            используя плагин
+            <a
+              href="https://www.npmjs.com/package/gulp-htmlclean"
+              rel="nofollow noopener"
+              class="ym-external-link"
+              target="_blank"
+              >gulp-htmlclean.</a
+            >
+          </p>
+          <p>
+            Также будет установлен плагин
+            <a
+              href="https://www.npmjs.com/package/gulp-noop"
+              rel="nofollow noopener"
+              class="ym-external-link"
+              target="_blank"
+              >gulp-noop</a
+            >. Он не выполняет никакой операции:
+          </p>
+          <div class="highlight" data-hscroll="">
+            <pre
+              class="highlight hljs sql show"
+            ><span class="line width-1" start="1">npm <span class="hljs-keyword"><span class="hljs-keyword">install</span></span> gulp-htmlclean gulp-noop <span class="hljs-comment"><span class="hljs-comment">--save-dev</span></span></span></pre>
+          </div>
+          <p>
+            Эти модули загружаются в начале
+            <span class="strong">gulpfile.js</span>:
+          </p>
+          <div class="highlight" data-hscroll="">
+            <pre
+              class="highlight hljs javascript show"
+            ><span class="line width-1" start="1"><span class="hljs-keyword"><span class="hljs-keyword">const</span></span></span>
+            <span class="line width-1" start="2">  <span class="hljs-comment"><span class="hljs-comment">// модули</span></span></span>
+            <span class="line width-1" start="3">  gulp = <span class="hljs-built_in"><span class="hljs-built_in">require</span></span>(<span class="hljs-string"><span class="hljs-string">'gulp'</span></span>),</span>
+            <span class="line width-1" start="4">  noop = <span class="hljs-built_in"><span class="hljs-built_in">require</span></span>(<span class="hljs-string"><span class="hljs-string">'gulp-noop'</span></span>),</span>
+            <span class="line width-1" start="5">  newer = <span class="hljs-built_in"><span class="hljs-built_in">require</span></span>(<span class="hljs-string"><span class="hljs-string">'gulp-newer'</span></span>),</span>
+            <span class="line width-1" start="6">  imagemin = <span class="hljs-built_in"><span class="hljs-built_in">require</span></span>(<span class="hljs-string"><span class="hljs-string">'gulp-imagemin'</span></span>),</span>
+            <span class="line width-1" start="7">  htmlclean = <span class="hljs-built_in"><span class="hljs-built_in">require</span></span>(<span class="hljs-string"><span class="hljs-string">'gulp-htmlclean'</span></span>),</span></pre>
+          </div>
+          <p>
+            Теперь можно экспортировать функцию для обработки
+            <span class="strong">html</span> в конец
+            <span class="strong">gulpfile.js</span>:
+          </p>
+          <div class="highlight" data-hscroll="">
+            <pre
+              class="highlight hljs cs show"
+            ><span class="line width-2" start="1"><span class="hljs-comment"><span class="hljs-comment">// обработка HTML </span></span></span>
+            <span class="line width-2" start="2"><span class="hljs-function"><span class="hljs-function">function </span><span class="hljs-title"><span class="hljs-function"><span class="hljs-title">html</span></span></span><span class="hljs-function">(</span><span class="hljs-params"></span><span class="hljs-function"><span class="hljs-params"></span>) </span></span>{</span>
+            <span class="line width-2" start="3">  <span class="hljs-keyword"><span class="hljs-keyword">const</span></span> <span class="hljs-keyword"><span class="hljs-keyword">out</span></span> = build + <span class="hljs-string"><span class="hljs-string">'html/'</span></span>;</span>
+            <span class="line width-2" start="4"></span>
+            <span class="line width-2" start="5">  <span class="hljs-keyword"><span class="hljs-keyword">return</span></span> gulp.src(src + <span class="hljs-string"><span class="hljs-string">'html/**/*'</span></span>)</span>
+            <span class="line width-2" start="6">    .pipe(newer(<span class="hljs-keyword"><span class="hljs-keyword">out</span></span>));</span>
+            <span class="line width-2" start="7">    .pipe(devBuild ? noop() : htmlclean())</span>
+            <span class="line width-2" start="8">    .pipe(gulp.dest(<span class="hljs-keyword"><span class="hljs-keyword">out</span></span>));</span>
+            <span class="line width-2" start="9">}</span>
+            <span class="line width-2" start="10">exports.html = gulp.series(images, html);</span></pre>
+          </div>
+          <p>В этом коде:</p>
+          <ol>
+            <li>
+              Мы передаем HTML только через
+              <span class="strong">gulp-htmlclean</span>, если
+              <span class="strong">NODE_ENV</span> установлен на
+              <span class="strong">production</span>. Поэтому HTML остается
+              несжатым во время разработки. Что будет полезно для отладки.
+            </li>
+            <li>
+              Экспортируемый таск <span class="strong">html</span> использует
+              <span class="strong">series()</span> для объединения заданий,
+              которые выполняются друг за другом. В этом случае функция
+              <span class="strong">images()</span> запускается до функции
+              <span class="strong">html().</span> В результате файлы HTML могут
+              ссылаться на изображения.
+            </li>
+          </ol>
+          <p>
+            Сохраните <span class="strong">gulpfile.js</span> и запустите
+            <span class="strong">gulp html</span> из командной строки. Будут
+            выполняться оба таска – <span class="strong">html</span> и
+            <span class="strong">images</span>.
+          </p>
+          <h3 id="header-45134-13">
+            <span class="strong">Задание для JavaScript</span>
+          </h3>
+          <p>
+            Обработаем файлы JavaScript, построив сборщик пакетов. Он делает
+            следующее:
+          </p>
+          <ol>
+            <li>
+              Гарантирует, что зависимости будут загружены с помощью плагина
+              <span class="strong">gulp-deporder</span>. Анализирует комментарии
+              в верхней части каждого скрипта, чтобы обеспечить правильное
+              упорядочение – например,
+              <span class="strong">// requires: defaults.js lib.js</span>.
+            </li>
+            <li>
+              Объединяет все файлы скриптов в один файл
+              <span class="strong">js</span>, используя
+              <span class="strong">gulp-concat</span>.
+            </li>
+            <li>
+              Удаляет значения <span class="strong">console</span> и
+              <span class="strong">debugging</span> с помощью
+              <span class="strong">gulp-strip-debug</span> при работе в режиме
+              разработки.
+            </li>
+            <li>
+              Минифицирует код с помощью ES6-совместимого
+              <span class="strong">gulp-terser</span>.
+            </li>
+            <li>
+              Добавляет карту источника в режиме разработки с помощью
+              <span class="strong">gulp-sourcemaps</span>.
+            </li>
+          </ol>
+          <p>Установите модули плагинов:</p>
+          <div class="highlight" data-hscroll="">
+            <pre
+              class="highlight hljs sql show"
+            ><span class="line width-1" start="1">npm <span class="hljs-keyword"><span class="hljs-keyword">install</span></span> gulp-deporder gulp-<span class="hljs-keyword"><span class="hljs-keyword">concat</span></span> gulp-strip-debug gulp-terser gulp-sourcemaps <span class="hljs-comment"><span class="hljs-comment">--save-dev</span></span></span></pre>
+          </div>
+          <p>
+            Затем загрузите их в начало <span class="strong">gulpfile.js</span>:
+          </p>
+          <div class="highlight" data-hscroll="">
+            <pre
+              class="highlight hljs javascript show"
+            ><span class="line width-1" start="1"><span class="hljs-keyword"><span class="hljs-keyword">const</span></span></span>
+            <span class="line width-1" start="2">  ...</span>
+            <span class="line width-1" start="3">  concat = <span class="hljs-built_in"><span class="hljs-built_in">require</span></span>(<span class="hljs-string"><span class="hljs-string">'gulp-concat'</span></span>),</span>
+            <span class="line width-1" start="4">  deporder = <span class="hljs-built_in"><span class="hljs-built_in">require</span></span>(<span class="hljs-string"><span class="hljs-string">'gulp-deporder'</span></span>),</span>
+            <span class="line width-1" start="5">  terser = <span class="hljs-built_in"><span class="hljs-built_in">require</span></span>(<span class="hljs-string"><span class="hljs-string">'gulp-terser'</span></span>),</span>
+            <span class="line width-1" start="6">  stripdebug = devBuild ? <span class="hljs-built_in"><span class="hljs-built_in">require</span></span>(<span class="hljs-string"><span class="hljs-string">'gulp-strip-debug'</span></span>) : <span class="hljs-literal"><span class="hljs-literal">null</span></span>,</span>
+            <span class="line width-1" start="7">  sourcemaps = devBuild ? <span class="hljs-built_in"><span class="hljs-built_in">require</span></span>(<span class="hljs-string"><span class="hljs-string">'gulp-sourcemaps'</span></span>) : <span class="hljs-literal"><span class="hljs-literal">null</span></span>,</span></pre>
+          </div>
+          <p>
+            <span class="italic"
+              >Примечание: для большей эффективности модули
+              <span class="strong">gulp-strip-debug</span> и
+              <span class="strong">gulp-sourcemaps</span> загружаются только в
+              режиме разработки.</span
+            >
+          </p>
+          <p>Экспортируйте новую функцию задания:</p>
+          <div class="highlight" data-hscroll="">
+            <pre
+              class="highlight hljs javascript show"
+            ><span class="line width-2" start="1"><span class="hljs-comment"><span class="hljs-comment">// обработка JavaScript</span></span></span>
+            <span class="line width-2" start="2"><span class="hljs-function"><span class="hljs-keyword"><span class="hljs-function"><span class="hljs-keyword">function</span></span></span><span class="hljs-function"> </span><span class="hljs-title"><span class="hljs-function"><span class="hljs-title">js</span></span></span><span class="hljs-function">(</span><span class="hljs-params"></span><span class="hljs-function"><span class="hljs-params"></span>) </span></span>{</span>
+            <span class="line width-2" start="3"></span>
+            <span class="line width-2" start="4">  <span class="hljs-keyword"><span class="hljs-keyword">return</span></span> gulp.src(src + <span class="hljs-string"><span class="hljs-string">'js/**/*'</span></span>)</span>
+            <span class="line width-2" start="5">    .pipe(sourcemaps ? sourcemaps.init() : noop())</span>
+            <span class="line width-2" start="6">    .pipe(deporder())</span>
+            <span class="line width-2" start="7">    .pipe(concat(<span class="hljs-string"><span class="hljs-string">'main.js'</span></span>))</span>
+            <span class="line width-2" start="8">    .pipe(stripdebug ? stripdebug() : noop())</span>
+            <span class="line width-2" start="9">    .pipe(terser())</span>
+            <span class="line width-2" start="10">    .pipe(sourcemaps ? sourcemaps.write() : noop())</span>
+            <span class="line width-2" start="11">    .pipe(gulp.dest(build + <span class="hljs-string"><span class="hljs-string">'js/'</span></span>));</span>
+            <span class="line width-2" start="12"></span>
+            <span class="line width-2" start="13">}</span>
+            <span class="line width-2" start="14">exports.js = js;</span></pre>
+          </div>
+          <p>
+            Функция <span class="strong">sourcemap.init()</span> вызывается до
+            преобразования кода, а
+            <span class="strong">sourcemaps.write()</span> — после завершения.
+          </p>
+          <p>
+            Добавьте файлы JavaScript в папку
+            <span class="strong">src/js/</span>. Затем запустите
+            <span class="strong">gulp js</span>.
+          </p>
+          <h3 id="header-45134-14">
+            <span class="strong">Задание для CSS</span>
+          </h3>
+          <p>
+            Создадим задание (таск), которое будет компилировать файлы Sass
+            (<span class="strong">.scss</span>) в один файл
+            <span class="strong">.css</span>, используя
+            <span class="strong">gulp-sass</span>. Это плагин Gulp для
+            <a
+              href="https://www.npmjs.com/package/node-sass"
+              rel="nofollow noopener"
+              class="ym-external-link"
+              target="_blank"
+              >node-sass</a
+            >, который связан с
+            <a
+              href="http://sass-lang.com/libsass"
+              rel="nofollow noopener"
+              class="ym-external-link"
+              target="_blank"
+              ><span class="strong">LibSass C/C++</span> </a
+            >. Предполагается, что ваш основной файл Sass
+            <span class="strong">scss/main.scss</span> отвечает за загрузку всех
+            файлов.
+          </p>
+          <p>
+            Инструкция также будет использовать
+            <span class="strong">PostCSS</span> через плагин
+            <span class="strong">gulp-postcss</span>. PostCSS требуется
+            собственный набор плагинов:
+          </p>
+          <ul>
+            <li>
+              <a
+                href="https://www.npmjs.com/package/postcss-assets"
+                rel="nofollow noopener"
+                class="ym-external-link"
+                target="_blank"
+                >postcss-assets</a
+              >
+              – предназначен для управления ресурсами. Он позволяет использовать
+              такие свойства, как
+              <span class="strong">background: resolve (‘image.png’);</span>
+              разрешить пути к файлам или к
+              <span class="strong">background: inline (‘image.png’);</span>
+              встроить изображения с закодированными данными.
+            </li>
+            <li>
+              <a
+                href="https://www.npmjs.com/package/autoprefixer"
+                rel="nofollow noopener"
+                class="ym-external-link"
+                target="_blank"
+                >autoprefixer</a
+              >
+              – предназначен для автоматического добавления вендорных префиксов
+              в свойства CSS.
+            </li>
+            <li>
+              <a
+                href="https://www.npmjs.com/package/css-mqpacker"
+                rel="nofollow noopener"
+                class="ym-external-link"
+                target="_blank"
+                >css-mqpacker</a
+              >
+              – для упаковки нескольких ссылок на один и тот же медиа запрос CSS
+              в одно правило.
+            </li>
+            <li>
+              <a
+                href="https://www.npmjs.com/package/cssnano"
+                rel="nofollow noopener"
+                class="ym-external-link"
+                target="_blank"
+                >cssnano</a
+              >
+              – для минификации кода CSS.
+            </li>
+          </ul>
+          <p>
+            Source Map будет добавлена ​​в файл CSS при повторном запуске в
+            режиме разработки с помощью
+            <a
+              href="https://www.npmjs.com/package/gulp-sourcemaps"
+              rel="nofollow noopener"
+              class="ym-external-link"
+              target="_blank"
+              >gulp-sourcemaps</a
+            >.
+          </p>
+          <p>Установите все модули:</p>
+          <div class="highlight" data-hscroll="">
+            <pre
+              class="highlight hljs sql show"
+            ><span class="line width-1" start="1">npm <span class="hljs-keyword"><span class="hljs-keyword">install</span></span> gulp-sass gulp-postcss postcss-assets autoprefixer css-mqpacker cssnano <span class="hljs-comment"><span class="hljs-comment">--save-dev</span></span></span></pre>
+          </div>
+          <p>Загрузите их в начало <span class="strong">gulpfile.js</span>:</p>
+          <div class="highlight" data-hscroll="">
+            <pre
+              class="highlight hljs javascript show"
+            ><span class="line width-1" start="1"><span class="hljs-keyword"><span class="hljs-keyword">const</span></span></span>
+            <span class="line width-1" start="2">  ...</span>
+            <span class="line width-1" start="3">  sass = <span class="hljs-built_in"><span class="hljs-built_in">require</span></span>(<span class="hljs-string"><span class="hljs-string">'gulp-sass'</span></span>),</span>
+            <span class="line width-1" start="4">  postcss = <span class="hljs-built_in"><span class="hljs-built_in">require</span></span>(<span class="hljs-string"><span class="hljs-string">'gulp-postcss'</span></span>),</span>
+            <span class="line width-1" start="5">  assets = <span class="hljs-built_in"><span class="hljs-built_in">require</span></span>(<span class="hljs-string"><span class="hljs-string">'postcss-assets'</span></span>),</span>
+            <span class="line width-1" start="6">  autoprefixer = <span class="hljs-built_in"><span class="hljs-built_in">require</span></span>(<span class="hljs-string"><span class="hljs-string">'autoprefixer'</span></span>),</span>
+            <span class="line width-1" start="7">  mqpacker = <span class="hljs-built_in"><span class="hljs-built_in">require</span></span>(<span class="hljs-string"><span class="hljs-string">'css-mqpacker'</span></span>),</span>
+            <span class="line width-1" start="8">  cssnano = <span class="hljs-built_in"><span class="hljs-built_in">require</span></span>(<span class="hljs-string"><span class="hljs-string">'cssnano'</span></span>),</span></pre>
+          </div>
+          <p>
+            Теперь можно экспортировать новый таск в конец
+            <span class="strong">gulpfile.js</span>. Обратите внимание, что
+            задание <span class="strong">images </span>установлено ​​как
+            зависимость, потому что плагин
+            <span class="strong">postcss-assets</span> может ссылаться на
+            изображения в процессе сборки:
+          </p>
+          <div class="highlight" data-hscroll="">
+            <pre
+              class="highlight hljs javascript show"
+            ><span class="line width-2" start="1"><span class="hljs-comment"><span class="hljs-comment">// обработка CSS</span></span></span>
+            <span class="line width-2" start="2"><span class="hljs-function"><span class="hljs-keyword"><span class="hljs-function"><span class="hljs-keyword">function</span></span></span><span class="hljs-function"> </span><span class="hljs-title"><span class="hljs-function"><span class="hljs-title">css</span></span></span><span class="hljs-function">(</span><span class="hljs-params"></span><span class="hljs-function"><span class="hljs-params"></span>) </span></span>{</span>
+            <span class="line width-2" start="3"></span>
+            <span class="line width-2" start="4">  <span class="hljs-keyword"><span class="hljs-keyword">return</span></span> gulp.src(src + <span class="hljs-string"><span class="hljs-string">'scss/main.scss'</span></span>)</span>
+            <span class="line width-2" start="5">    .pipe(sourcemaps ? sourcemaps.init() : noop())</span>
+            <span class="line width-2" start="6">    .pipe(sass({</span>
+            <span class="line width-2" start="7">      <span class="hljs-attr"><span class="hljs-attr">outputStyle</span></span>: <span class="hljs-string"><span class="hljs-string">'nested'</span></span>,</span>
+            <span class="line width-2" start="8">      <span class="hljs-attr"><span class="hljs-attr">imagePath</span></span>: <span class="hljs-string"><span class="hljs-string">'/images/'</span></span>,</span>
+            <span class="line width-2" start="9">      <span class="hljs-attr"><span class="hljs-attr">precision</span></span>: <span class="hljs-number"><span class="hljs-number">3</span></span>,</span>
+            <span class="line width-2" start="10">      <span class="hljs-attr"><span class="hljs-attr">errLogToConsole</span></span>: <span class="hljs-literal"><span class="hljs-literal">true</span></span></span>
+            <span class="line width-2" start="11">    }).on(<span class="hljs-string"><span class="hljs-string">'error'</span></span>, sass.logError))</span>
+            <span class="line width-2" start="12">    .pipe(postcss([</span>
+            <span class="line width-2" start="13">      assets({ <span class="hljs-attr"><span class="hljs-attr">loadPaths</span></span>: [<span class="hljs-string"><span class="hljs-string">'images/'</span></span>] }),</span>
+            <span class="line width-2" start="14">      autoprefixer({ <span class="hljs-attr"><span class="hljs-attr">browsers</span></span>: [<span class="hljs-string"><span class="hljs-string">'last 2 versions'</span></span>, <span class="hljs-string"><span class="hljs-string">'&gt; 2%'</span></span>] }),</span>
+            <span class="line width-2" start="15">      mqpacker,</span>
+            <span class="line width-2" start="16">      cssnano</span>
+            <span class="line width-2" start="17">    ]))</span>
+            <span class="line width-2" start="18">    .pipe(sourcemaps ? sourcemaps.write() : noop())</span>
+            <span class="line width-2" start="19">    .pipe(gulp.dest(build + <span class="hljs-string"><span class="hljs-string">'css/'</span></span>));</span>
+            <span class="line width-2" start="20"></span>
+            <span class="line width-2" start="21">}</span>
+            <span class="line width-2" start="22">exports.css = gulp.series(images, css);</span></pre>
+          </div>
+          <p>
+            При этом
+            <span class="strong">.on(‘error’, sass.logError)</span> гарантирует,
+            что Sass выводит синтаксические ошибки на консоль, не останавливая
+            работу Gulp.
+          </p>
+          <p>
+            Сохраните файл, добавьте файлы Sass
+            <span class="strong">.scss</span> и запустите таск из командной
+            строки:
+          </p>
+          <div class="highlight" data-hscroll="">
+            <pre
+              class="highlight hljs nginx show"
+            ><span class="line width-1" start="1"><span class="hljs-attribute"><span class="hljs-attribute">gulp</span></span> css</span></pre>
+          </div>
+          <h2 id="header-45134-15">
+            <span class="strong"
+              >Шаг 6: Автоматизируйте выполнение заданий</span
+            >
+          </h2>
+          <p>
+            Чтобы запустить все задания в одной команде, экспортируйте таск
+            <span class="strong">build</span> в
+            <span class="strong">gulpfile.js</span>:
+          </p>
+          <div class="highlight" data-hscroll="">
+            <pre
+              class="highlight hljs java show"
+            ><span class="line width-1" start="1"><span class="hljs-comment"><span class="hljs-comment">// запустить все таски</span></span></span>
+            <span class="line width-1" start="2"><span class="hljs-keyword"><span class="hljs-keyword">exports</span></span>.build = gulp.parallel(<span class="hljs-keyword"><span class="hljs-keyword">exports</span></span>.html, <span class="hljs-keyword"><span class="hljs-keyword">exports</span></span>.css, <span class="hljs-keyword"><span class="hljs-keyword">exports</span></span>.js);</span></pre>
+          </div>
+          <p>
+            Метод <span class="strong">gulp.parallel()</span> выполняет все
+            задания одновременно. Его можно комбинировать с
+            <span class="strong">gulp.series()</span> для создания сложных
+            цепочек зависимостей. В этом примере
+            <span class="strong">exports.html, exports.css </span>и
+            <span class="strong">exports.js</span> запускаются параллельно. Но
+            каждый из них может иметь последовательности зависимостей, включая
+            таск images.
+          </p>
+          <p>
+            Введите в командной строке <span class="strong">gulp build</span>,
+            чтобы выполнить все таски.
+          </p>
+          <p>
+            Кроме этого Gulp предоставляет метод
+            <span class="strong">.watch()</span>, который может запускать
+            соответствующий таск при каждом изменении файла. Он передает набор
+            файлов или папок для мониторинга, любые и функцию таска для запуска
+            (необязательно в методах
+            <span class="strong">gulp.series()</span> ли
+            <span class="strong">gulp.parallel() </span>).
+          </p>
+          <p>
+            Экспортируем новый таск <span class="strong">watch</span> в конец
+            <span class="strong">gulpfile.js</span>:
+          </p>
+          <div class="highlight" data-hscroll="">
+            <pre
+              class="highlight hljs javascript show"
+            ><span class="line width-2" start="1"><span class="hljs-comment"><span class="hljs-comment">// следим за изменениями файлов</span></span></span>
+              <span class="line width-2" start="2"><span class="hljs-function"><span class="hljs-keyword"><span class="hljs-function"><span class="hljs-keyword">function</span></span></span><span class="hljs-function"> </span><span class="hljs-title"><span class="hljs-function"><span class="hljs-title">watch</span></span></span><span class="hljs-function">(</span><span class="hljs-params"><span class="hljs-function"><span class="hljs-params">done</span></span></span><span class="hljs-function">) </span></span>{</span>
+              <span class="line width-2" start="3"></span>
+              <span class="line width-2" start="4">  <span class="hljs-comment"><span class="hljs-comment">// изменениями изображений</span></span></span>
+              <span class="line width-2" start="5">  gulp.watch(src + <span class="hljs-string"><span class="hljs-string">'images/**/*'</span></span>, images);</span>
+              <span class="line width-2" start="6"></span>
+              <span class="line width-2" start="7">  <span class="hljs-comment"><span class="hljs-comment">// изменениями html</span></span></span>
+              <span class="line width-2" start="8">  gulp.watch(src + <span class="hljs-string"><span class="hljs-string">'html/**/*'</span></span>, html);</span>
+              <span class="line width-2" start="9"></span>
+              <span class="line width-2" start="10">  <span class="hljs-comment"><span class="hljs-comment">// изменениями css</span></span></span>
+              <span class="line width-2" start="11">  gulp.watch(src + <span class="hljs-string"><span class="hljs-string">'scss/**/*'</span></span>, css);</span>
+              <span class="line width-2" start="12"></span>
+              <span class="line width-2" start="13">  <span class="hljs-comment"><span class="hljs-comment">// изменениями js</span></span></span>
+              <span class="line width-2" start="14">  gulp.watch(src + <span class="hljs-string"><span class="hljs-string">'js/**/*'</span></span>, js);</span>
+              <span class="line width-2" start="15"></span>
+              <span class="line width-2" start="16">  done();</span>
+              <span class="line width-2" start="17"></span>
+              <span class="line width-2" start="18">}</span>
+              <span class="line width-2" start="19">exports.watch = watch;</span></pre>
+          </div>
+          <p>
+            Gulp нужно знать, когда будет завершена функция таска. Этого можно
+            добиться, используя JavaScript Promise, транслятор событий, дочерний
+            процесс или функцию обратного вызова. В данном примере мы используем
+            функцию обратного вызова <span class="strong">done()</span>, чтобы
+            указать, что все задания &nbsp;<span class="strong">watch()</span>
+            были настроены.
+          </p>
+          <p>
+            Вместо того чтобы запустить
+            <span class="strong">gulp watch</span> немедленно, добавим таск по
+            умолчанию. Его можно выполнить, запустив
+            <span class="strong">gulp </span>без дополнительных аргументов:
+          </p>
+          <div class="highlight" data-hscroll="">
+            <pre
+              class="highlight hljs java show"
+            ><span class="line width-1" start="1"><span class="hljs-comment"><span class="hljs-comment">// таск по умолчанию</span></span></span>
+                <span class="line width-1" start="2"><span class="hljs-keyword"><span class="hljs-keyword">exports</span></span>.<span class="hljs-keyword"><span class="hljs-keyword">default</span></span> = gulp.series(<span class="hljs-keyword"><span class="hljs-keyword">exports</span></span>.build, <span class="hljs-keyword"><span class="hljs-keyword">exports</span></span>.watch);</span></pre>
+          </div>
+          <p>
+            Сохраните <span class="strong">gulpfile.js</span> и введите в
+            командной строке <span class="strong">gulp</span>. Ваши изображения,
+            HTML, CSS и JavaScript будут обработаны. Затем Gulp продолжит
+            проверку обновлений и будет повторно выполнять задания по мере
+            необходимости. Нажмите <span class="strong">Ctrl/Cmd + C</span>,
+            чтобы прервать мониторинг и вернуться в командную строку.
+          </p>
+          <h2 id="header-45134-16">
+            <span class="strong">Шаг 7: Пожинаем плоды!</span>
+          </h2>
+          <p>Другие плагины, которые могут быть полезны:</p>
+          <ul>
+            <li>
+              <a
+                href="https://www.npmjs.com/package/gulp-load-plugins"
+                rel="nofollow noopener"
+                class="ym-external-link"
+                target="_blank"
+                >gulp-load-plugins</a
+              >: загружает все модули плагинов Gulp автоматически;
+            </li>
+            <li>
+              <a
+                href="https://www.npmjs.com/package/gulp-preprocess"
+                rel="nofollow noopener"
+                class="ym-external-link"
+                target="_blank"
+                >gulp-preprocess</a
+              >: простой
+              <a
+                href="https://github.com/jsoverson/preprocess"
+                rel="nofollow noopener"
+                class="ym-external-link"
+                target="_blank"
+                >препроцессор</a
+              >
+              HTML и JavaScript;
+            </li>
+            <li>
+              <a
+                href="https://www.npmjs.com/package/gulp-less"
+                rel="nofollow noopener"
+                class="ym-external-link"
+                target="_blank"
+                >gulp-less</a
+              >: плагин
+              <a
+                href="http://lesscss.org/"
+                rel="nofollow noopener"
+                class="ym-external-link"
+                target="_blank"
+                >препроцессора Less CSS</a
+              >;
+            </li>
+            <li>
+              <a
+                href="https://www.npmjs.com/package/gulp-stylus"
+                rel="nofollow noopener"
+                class="ym-external-link"
+                target="_blank"
+                >gulp-stylus</a
+              >: плагин
+              <a
+                href="http://stylus-lang.com/"
+                rel="nofollow noopener"
+                class="ym-external-link"
+                target="_blank"
+                >препроцессора Stylus CSS</a
+              >;
+            </li>
+            <li>
+              <a
+                href="https://www.npmjs.com/package/gulp-size"
+                rel="nofollow noopener"
+                class="ym-external-link"
+                target="_blank"
+                >gulp-size</a
+              >: отображает размеры файлов;
+            </li>
+            <li>
+              <a
+                href="https://www.npmjs.com/package/gulp-nodemon"
+                rel="nofollow noopener"
+                class="ym-external-link"
+                target="_blank"
+                >gulp-nodemon</a
+              >: использует
+              <a
+                href="https://www.npmjs.com/package/nodemon"
+                rel="nofollow noopener"
+                class="ym-external-link"
+                target="_blank"
+                >nodemon</a
+              >
+              для автоматического перезапуска приложений Node.js при их
+              изменении.
+            </li>
+          </ul>
+          <p>
+            Таски Gulp могут запускать любой JavaScript- код или модули Node.js.
+            Они не обязательно должны быть плагинами. Например:
+          </p>
+          <ul>
+            <li>
+              <a
+                href="https://www.npmjs.com/package/browser-sync"
+                rel="nofollow noopener"
+                class="ym-external-link"
+                target="_blank"
+                >browser-sync</a
+              >: автоматически перезагружает ресурсы, когда происходят
+              изменения;
+            </li>
+            <li>
+              <a
+                href="https://www.npmjs.com/package/del"
+                rel="nofollow noopener"
+                class="ym-external-link"
+                target="_blank"
+                >del</a
+              >: удаляет файлы и папки (может очищать папку
+              <span class="strong">build</span> в начале каждого запуска).
+            </li>
+          </ul>
+          <p>Преимущества Gulp:</p>
+          <ul>
+            <li>
+              <a
+                href="https://npmjs.org/browse/keyword/gulpplugin/"
+                rel="nofollow noopener"
+                class="ym-external-link"
+                target="_blank"
+                >множество плагинов</a
+              >;
+            </li>
+            <li>
+              конфигурация с использованием
+              <span class="strong">pipe</span> легко читаема и понятна;
+            </li>
+            <li>
+              <span class="strong">js</span> можно адаптировать для
+              использования в других проектах;
+            </li>
+            <li>упрощает развертывание;</li>
+          </ul>
+          <p>Полезные ссылки:</p>
+          <ul>
+            <li>
+              <a
+                href="http://gulpjs.com/"
+                rel="nofollow noopener"
+                class="ym-external-link"
+                target="_blank"
+                >домашняя страница Gulp</a
+              >;
+            </li>
+            <li>
+              <a
+                href="https://npmjs.org/browse/keyword/gulpplugin/"
+                rel="nofollow noopener"
+                class="ym-external-link"
+                target="_blank"
+                >плагины Gulp</a
+              >;
+            </li>
+            <li>
+              <a
+                href="https://www.npmjs.com/"
+                rel="nofollow noopener"
+                class="ym-external-link"
+                target="_blank"
+                >домашняя страница npm</a
+              >.
+            </li>
+          </ul>
+          <p>
+            После применения описанных выше процессов к простому сайту его общий
+            вес уменьшился более чем на 50%.
+          </p>
+          <p>
+            Что такое Gulp.js? Gulp – это отличный вариант для автоматического
+            запуска заданий и упрощения процесса разработки.
+          </p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
